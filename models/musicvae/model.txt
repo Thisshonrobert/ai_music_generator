@@ -1,0 +1,5 @@
+https://storage.googleapis.com/magentadata/models/music_vae/checkpoints/hierdec-trio_16bar.tar
+
+
+
+DOWNLOAD THE CHECKPOINT FROM THIS LINK

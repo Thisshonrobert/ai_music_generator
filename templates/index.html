@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="{% static 'js/musicplayer.js' %}"></script>
+</head>
+<body>
+    <div class="vh-100 d-flex justify-content-center align-items-center" style="background-image:url(https://imgs.search.brave.com/lIOqlHSAH471SyLULBV7adfJeXk-L4Sct__TyJV9elU/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvNjI3/NjAzLmpwZw);background-size:cover;">
+        <div class="p-5 shadow" style="background-color:#ffffe5;">
+            <div>
+                <div class="d-flex flex-column justify-content-center align-items-center" style="height:200px;border:dashed 2px #262626;margin:5px;border-radius:10px; padding:50px;">
+                    <form class="d-flex" method="post" enctype="multipart/form-data" action="process-image">
+                        {% csrf_token %}
+                        <input class="form-control" type="file" name="image" accept="image/*" required>
+                        <button class="btn d-flex" type="submit" style="background-color:#f90667;color:white;"><img style="width:20px;height:20px;filter: invert(100%);margin-right:2px;" src="{% static 'images/glow-icon.svg' %}">Generate</button>
+                    </form>
+                </div>
+                {% if midi_file %}
+                    <div>
+                        <audio controls id="midiPlayer">
+                            <source src="{{ midi_file }}" type="audio/midi">
+                        </audio>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
