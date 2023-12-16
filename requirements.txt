@@ -1,0 +1,5 @@
+magenta
+tensorflow
+pillow
+transformers
+django
